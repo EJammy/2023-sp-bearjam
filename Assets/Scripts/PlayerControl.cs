@@ -17,8 +17,7 @@ public class PlayerControl : MonoBehaviour
         Statics.player = this.gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Statics.hasControl)
         {
@@ -31,11 +30,11 @@ public class PlayerControl : MonoBehaviour
                 } else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
                 {
                     // Getting out of water case
-                    force += Vector2.up * 7;
+                    force += Vector2.up * 2;
                 } else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Ground")))
                 {
                     // On land case
-                    force += Vector2.up * 14;
+                    force += Vector2.up * 3;
                 }
             }
             if (Input.GetKey(KeyCode.S))
@@ -57,5 +56,28 @@ public class PlayerControl : MonoBehaviour
 
             Debug.Log(rb.velocity);
         }
+    }
+
+    private void Update()
+    {
+        if (Statics.hasControl)
+        {
+            Vector2 force = Vector2.zero;
+            if (Input.GetKey(KeyCode.W) && !waterCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
+            {
+                if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
+                {
+                    // Getting out of water case
+                    force += Vector2.up;
+                }
+                else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Ground")))
+                {
+                    // On land case
+                    force += Vector2.up;
+                }
+            }
+            rb.AddForce(force * controlForce);
+        }
+
     }
 }
