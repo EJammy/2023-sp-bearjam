@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     Rigidbody2D rb;
-    const float controlForce = 10;
+    [SerializeField] float controlForce = 5;
+    [SerializeField] private float maxSpeed = 10;
+    [SerializeField] private BoxCollider2D waterCheck;
+    [SerializeField] private BoxCollider2D groundCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,18 @@ public class PlayerControl : MonoBehaviour
             Vector2 force = Vector2.zero;
             if (Input.GetKey(KeyCode.W))
             {
-                force += Vector2.up;
+                if (waterCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
+                {
+                    force += Vector2.up;
+                } else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
+                {
+                    // Getting out of water case
+                    force += Vector2.up * 7;
+                } else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Ground")))
+                {
+                    // On land case
+                    force += Vector2.up * 14;
+                }
             }
             if (Input.GetKey(KeyCode.S))
             {
@@ -38,7 +52,10 @@ public class PlayerControl : MonoBehaviour
             }
 
             rb.AddForce(force * controlForce);
-            // Debug.Log(rb.velocity);
+
+            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rb.velocity.y, -maxSpeed, maxSpeed));
+
+            Debug.Log(rb.velocity);
         }
     }
 }
