@@ -1,0 +1,89 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerInteract : MonoBehaviour
+{
+    #region Variables
+    public Canvas TextBox;
+    public float timeToShow = 1;
+    public float timeToClose = 0.5f;
+    bool midAnimation;
+    Coroutine currentRoutine;
+    bool canInteract;
+    #endregion
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        TextBox.GetComponent<CanvasGroup>().alpha = 0;
+        midAnimation = false;
+        canInteract = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && canInteract)
+        {
+            // Interact
+        }
+    }
+
+    public void displayInteractKey()
+    {
+        if (midAnimation)
+        {
+            StopCoroutine(currentRoutine);
+        }
+        currentRoutine = StartCoroutine(ShowTextBox());
+        canInteract = true;
+    }
+
+    public void closeInteractKey()
+    {
+        if (midAnimation)
+        {
+            StopCoroutine(currentRoutine);
+        }
+        currentRoutine = StartCoroutine(CloseTextBox());
+        canInteract = false;
+    }
+
+    IEnumerator ShowTextBox()
+    {
+        // Lerp
+        midAnimation = true;
+        float timeElapsed = 0;
+        float initAlpha = TextBox.GetComponent<CanvasGroup>().alpha;
+
+        while (timeElapsed <= timeToShow)
+        {
+            TextBox.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(initAlpha, 1, timeElapsed / timeToShow);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        TextBox.GetComponent<CanvasGroup>().alpha = 1;
+        currentRoutine = null;
+        midAnimation = false;
+        yield return null;
+    }
+
+    IEnumerator CloseTextBox()
+    {
+        // Lerp
+        midAnimation = true;
+        float timeElapsed = 0;
+        float initAlpha = TextBox.GetComponent<CanvasGroup>().alpha;
+
+        while (timeElapsed <= timeToShow)
+        {
+            TextBox.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(initAlpha, 0, timeElapsed / timeToClose);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        TextBox.GetComponent<CanvasGroup>().alpha = 0;
+        currentRoutine = null;
+        midAnimation = false;
+        yield return null;
+    }
+}
