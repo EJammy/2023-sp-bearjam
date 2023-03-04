@@ -20,8 +20,6 @@ public class FishSwarm : MonoBehaviour
     {
         blBound = GetComponent<BoxCollider2D>().bounds.min;
         trBound = GetComponent<BoxCollider2D>().bounds.max;
-        Debug.Log(blBound);
-        Debug.Log(trBound);
 
         for (int i = 0; i < 40; i++) {
             var fish = Instantiate(spawnTarget);
@@ -31,8 +29,6 @@ public class FishSwarm : MonoBehaviour
                     Random.Range(blBound.y, trBound.y),
                     transform.position.z
                     );
-            Debug.Log(fish.transform.position);
-            fish.transform.parent = transform;
             fish.swarm = this;
         }
 
@@ -59,8 +55,6 @@ public class FishSwarm : MonoBehaviour
                     Random.Range(blBound.x, trBound.x),
                     Random.Range(blBound.y, trBound.y)
                     );
-            Debug.Log(randomTarget);
-
             yield return new WaitForSeconds(4);
         }
     }
