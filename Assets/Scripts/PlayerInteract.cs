@@ -10,7 +10,12 @@ public class PlayerInteract : MonoBehaviour
     public float timeToClose = 0.5f;
     bool midAnimation;
     Coroutine currentRoutine;
-    bool canInteract;
+
+    [SerializeField] private DialogUI dialogUI;
+
+    public DialogUI DialogUI => dialogUI;
+
+    public Interactable interactable { get; set; }
     #endregion
 
     // Start is called before the first frame update
@@ -18,14 +23,18 @@ public class PlayerInteract : MonoBehaviour
     {
         TextBox.GetComponent<CanvasGroup>().alpha = 0;
         midAnimation = false;
-        canInteract = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canInteract)
+        if (Statics.hasControl && Input.GetKeyDown(KeyCode.E))
         {
-            // Interact
+            Debug.Log("Interact");
+            if (interactable != null && !dialogUI.isOpen)
+            {
+                Debug.Log("Success");
+                interactable.Interact(this);
+            }
         }
     }
 
@@ -36,7 +45,6 @@ public class PlayerInteract : MonoBehaviour
             StopCoroutine(currentRoutine);
         }
         currentRoutine = StartCoroutine(ShowTextBox());
-        canInteract = true;
     }
 
     public void closeInteractKey()
@@ -46,7 +54,6 @@ public class PlayerInteract : MonoBehaviour
             StopCoroutine(currentRoutine);
         }
         currentRoutine = StartCoroutine(CloseTextBox());
-        canInteract = false;
     }
 
     IEnumerator ShowTextBox()

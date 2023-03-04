@@ -11,26 +11,34 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Statics.player = this.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 force = Vector2.zero;
-        if (Input.GetKey(KeyCode.W)) {
-            force += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S)) {
-            force += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.A)) {
-            force += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.D)) {
-            force += Vector2.right;
-        }
+        if (Statics.hasControl)
+        {
+            Vector2 force = Vector2.zero;
+            if (Input.GetKey(KeyCode.W))
+            {
+                force += Vector2.up;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                force += Vector2.down;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                force += Vector2.left;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                force += Vector2.right;
+            }
 
-        rb.AddForce(force * controlForce);
-        Debug.Log(rb.velocity);
+            rb.AddForce(force * controlForce);
+            // Debug.Log(rb.velocity);
+        }
     }
 }
