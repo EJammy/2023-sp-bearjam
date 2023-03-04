@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4637959537698455449}
   - component: {fileID: 4637959537698455448}
   - component: {fileID: 1576525376}
-  m_Layer: 0
-  m_Name: Square
+  - component: {fileID: 3640822260427693883}
+  m_Layer: 10
+  m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,3 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3690c1b02df83e89b09fa877d5605e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swarm: {fileID: 0}
+--- !u!58 &3640822260427693883
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637959537698455450}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21133336}
+  serializedVersion: 2
+  m_Radius: 0.50000006

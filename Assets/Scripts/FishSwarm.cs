@@ -10,6 +10,7 @@ public class FishSwarm : MonoBehaviour
     public List<Fish> swarm { get; private set; } = new List<Fish>();
     public Vector2 avgVelocity { get; private set; } = Vector2.zero;
     public Vector2 avgPos { get; private set; } = Vector2.zero;
+    public Vector2 randomTarget { get; private set; }
 
     public Vector2 blBound { get; private set; }
     public Vector2 trBound { get; private set; }
@@ -17,19 +18,25 @@ public class FishSwarm : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 20; i++) {
-            var fish = Instantiate(spawnTarget);
-            swarm.Add(fish);
-            fish.transform.position = 
-                new Vector3(Random.Range(-8f, -1f), Random.Range(0f, 2f), transform.position.z);
-            fish.transform.parent = transform;
-            fish.swarm = this;
-        }
-
         blBound = GetComponent<BoxCollider2D>().bounds.min;
         trBound = GetComponent<BoxCollider2D>().bounds.max;
         Debug.Log(blBound);
         Debug.Log(trBound);
+
+        for (int i = 0; i < 40; i++) {
+            var fish = Instantiate(spawnTarget);
+            swarm.Add(fish);
+            fish.transform.position = new Vector3(
+                    Random.Range(blBound.x, trBound.x),
+                    Random.Range(blBound.y, trBound.y),
+                    transform.position.z
+                    );
+            Debug.Log(fish.transform.position);
+            fish.transform.parent = transform;
+            fish.swarm = this;
+        }
+
+        StartCoroutine(setRandomPoint());
     }
 
     // Update is called once per frame
@@ -43,6 +50,19 @@ public class FishSwarm : MonoBehaviour
         }
         avgVelocity /= swarm.Count;
         avgPos /= swarm.Count;
-        avgPos = (avgPos + (Vector2) transform.position) / 2;
+        avgPos = (avgPos + (Vector2) randomTarget) / 2;
+    }
+
+    IEnumerator setRandomPoint() {
+        while (true) {
+            randomTarget = new Vector2(
+                    Random.Range(blBound.x, trBound.x),
+                    Random.Range(blBound.y, trBound.y)
+                    );
+            Debug.Log(randomTarget);
+
+            yield return new WaitForSeconds(4);
+        }
     }
 }
+

@@ -13,12 +13,11 @@ public class Fish : MonoBehaviour
 
     const float cohesionFactor = 2f;
     const float alignmentFactor = 2f;
-    const float seperationFactor = 2f;
+    const float seperationFactor = 12f;
     const float maxVelocity = 6f;
 
     void Start()
     {
-        targetPos = new Vector2(0.9f, -0.2f);
     }
 
     void Update()
@@ -34,19 +33,16 @@ public class Fish : MonoBehaviour
 
         // Seperation
         Vector2 nearBy = Vector2.zero;
-        int cnt = 0;
-        foreach (var otherFish in swarm.swarm) {
+        var othersList = Physics2D.OverlapCircleAll(transform.position, 0.2f, LayerMask.GetMask("Fish"));
+        foreach (var otherFish in othersList) {
             Vector2 diff = otherFish.transform.position - transform.position;
-            if (diff.magnitude < 0.4 && otherFish != this) {
-                nearBy += diff.normalized;
-                cnt += 1;
-            }
+            nearBy += diff.normalized;
         }
-        nearBy /= cnt;
+
         velocity -= nearBy.normalized * Time.deltaTime * seperationFactor;
 
         // Bound
-        float boundFactor = 2f;
+        float boundFactor = 0f;
         if (transform.position.x < swarm.blBound.x) {
             velocity += Vector2.right * Time.deltaTime * boundFactor;
         }
