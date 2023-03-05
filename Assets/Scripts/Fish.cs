@@ -9,15 +9,20 @@ public class Fish : MonoBehaviour
 {
     public Vector2 targetPos { get; set; }
     public Vector2 velocity { get; private set; }
-    public FishSwarm swarm;
+    public FishSwarm swarm { get; set; }
 
     const float cohesionFactor = 2f;
     const float alignmentFactor = 2f;
     const float seperationFactor = 12f;
     const float maxVelocity = 6f;
 
-    void Start()
-    {
+    [SerializeField]
+    GameObject bloodParticles;
+
+    public void kill() {
+        Instantiate(bloodParticles, transform.position, Quaternion.identity);
+        swarm.swarm.Remove(this);
+        Destroy(gameObject);
     }
 
     void Update()

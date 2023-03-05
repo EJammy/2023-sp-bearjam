@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4637959537698455448}
   - component: {fileID: 1576525376}
   - component: {fileID: 3640822260427693883}
+  - component: {fileID: 6939796145889487009}
   m_Layer: 10
   m_Name: Fish
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3690c1b02df83e89b09fa877d5605e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swarm: {fileID: 0}
+  bloodParticles: {fileID: 2101711997406191599, guid: b03d2015d38ddea10bb0e504d11a3c91, type: 3}
 --- !u!58 &3640822260427693883
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,3 +116,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.21133336}
   serializedVersion: 2
   m_Radius: 0.50000006
+--- !u!114 &6939796145889487009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637959537698455450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca3435005f17b28baa33cfb2cf5be5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  val: 1
+  zeroCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1576525376}
+        m_TargetAssemblyTypeName: Fish, Assembly-CSharp
+        m_MethodName: kill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
