@@ -5,7 +5,14 @@ using TMPro;
 
 public class TypewriterEffect : MonoBehaviour
 {
-    [SerializeField] private float writingSpeed = 50f;
+    [SerializeField] private float writingSpeed = 40f;
+    private AudioSource audio;
+    [SerializeField] private AudioClip defaultVoice;
+
+    private void Start()
+    {
+        audio = gameObject.GetComponent<AudioSource>();
+    }
 
     public bool IsRunning { get; private set; }
 
@@ -17,8 +24,14 @@ public class TypewriterEffect : MonoBehaviour
 
     private Coroutine typingRoutine;
 
-    public void Run(string textToType, TMP_Text textLabel)
+    public void Run(string textToType, TMP_Text textLabel, AudioClip voice)
     {
+        if (voice == null)
+        {
+            voice = defaultVoice;
+        }
+        audio.clip = voice;
+
         typingRoutine = StartCoroutine(TypeText(textToType, textLabel));
     }
 
@@ -48,6 +61,9 @@ public class TypewriterEffect : MonoBehaviour
                 bool isLast = i >= textToType.Length - 1;
 
                 textLabel.text = textToType.Substring(0, i + 1);
+
+                if (!audio.isPlaying)
+                    audio.Play();
 
                 if (IsPunctuation(textToType[i], out float waitTime) && !isLast)
                 {

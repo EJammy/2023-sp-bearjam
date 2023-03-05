@@ -5,6 +5,6 @@ using UnityEngine.Events;
 public class DialogObj : ScriptableObject
 {
     [SerializeField] [TextArea] private string[] dialogue;
-
+    public AudioClip voice = null;
     public string[] Dialogue => dialogue;
 }

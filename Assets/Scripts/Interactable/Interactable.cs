@@ -7,7 +7,7 @@ using TMPro;
 public class Interactable : MonoBehaviour, IInteractable
 {
     #region Variables
-    [SerializeField] private DialogObj dialogObj;
+    public DialogObj dialogObj;
     [SerializeField] private GameObject dialogUI;
     #endregion
 

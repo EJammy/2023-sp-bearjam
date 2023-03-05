@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e97a9f5d946148b68a6e4ac3d041a, type: 3}
+  m_Name: OldMan1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "You aren't from around here are you? I can tell. \nAfter all I've been here
+    for a looong time. Hehe..."
+  - "You wouldn't be planning on going down that there \nhole are you?"
+  - "Only people with not much left to live for or people \nwith a few screws loose
+    go down there."
+  - "Oh no, I\u2019m not calling you crazy, but believe me... \nyou wouldn\u2019t
+    be the first person who\u2019s gone down\nthere before."
+  - "But maybe it\u2019ll be different for you hehe."
+  - "Well, if I happen to see you again and you find any treasure, I\u2019ll trade
+    you this pickaxe I uh found."
+  - "It\u2019ll be more useful for you than it has been for me \nhehe..."
+  voice: {fileID: 8300000, guid: 42149f2ee57ea69488bc6c62f9f6bc5b, type: 3}

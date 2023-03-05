@@ -35,7 +35,7 @@ public class DialogUI : MonoBehaviour
     {
         foreach (string dialog in dialogObj.Dialogue)
         {
-            yield return RunTypingEffect(dialog);
+            yield return RunTypingEffect(dialog, dialogObj.voice);
             textLabel.text = dialog;
             yield return null;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
@@ -50,9 +50,9 @@ public class DialogUI : MonoBehaviour
         }
     }
 
-    private IEnumerator RunTypingEffect(string dialog)
+    private IEnumerator RunTypingEffect(string dialog, AudioClip voice)
     {
-        typewriterEffect.Run(dialog, textLabel);
+        typewriterEffect.Run(dialog, textLabel, voice);
 
         while (typewriterEffect.IsRunning)
         {
