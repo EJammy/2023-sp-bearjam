@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OldMan2 5
   m_EditorClassIdentifier: 
   dialogue:
-  - You've got the treasure?
-  - HAHA!!! I'M FREE!
-  - Take your stupid knife and enjoy your surprise...
+  - You've got the treasure? Let me see...
+  - HAHA!!! I'M FREE! I'M FREE! I'M FREE!
+  - Take your stupid knife and enjoy your surprise hehe...
   voice: {fileID: 8300000, guid: 42149f2ee57ea69488bc6c62f9f6bc5b, type: 3}
