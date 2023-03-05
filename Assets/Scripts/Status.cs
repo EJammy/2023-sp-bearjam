@@ -12,6 +12,9 @@ public class Status : MonoBehaviour
     [Tooltip("Event when value reaches zero")]
     UnityEvent zeroCallback;
 
+    [SerializeField]
+    AudioClip reduceAudio;
+
     public void reduce(int amt) {
         val -= amt;
         if (val <= 0) {
