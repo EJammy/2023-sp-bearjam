@@ -53,7 +53,7 @@ public class PlayerControl : MonoBehaviour
 
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rb.velocity.y, -maxSpeed, maxSpeed));
 
-            Debug.Log(rb.velocity);
+            // Debug.Log(rb.velocity);
         }
     }
 

@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using TMPro;
 
-public class CollectionInteractable : MonoBehaviour, IInteractable
+public class Interactable : MonoBehaviour, IInteractable
 {
     #region Variables
     [SerializeField] private DialogObj dialogObj;
     [SerializeField] private GameObject dialogUI;
     #endregion
 
+    public UnityEvent dialogEvent;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
     public void Interact(PlayerInteract player)
     {
-        dialogUI.GetComponent<DialogUI>().ShowDialogue(dialogObj);
-        HandleCollection(player);
+        dialogUI.GetComponent<DialogUI>().ShowDialogue(dialogObj, dialogEvent);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,12 +45,5 @@ public class CollectionInteractable : MonoBehaviour, IInteractable
                 player.interactable = null;
             }
         }
-    }
-
-    private void HandleCollection(PlayerInteract player)
-    {
-        Statics.coins += 1;
-        Debug.Log(Statics.coins);
-        this.gameObject.SetActive(false);
     }
 }
