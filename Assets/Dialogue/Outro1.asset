@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e97a9f5d946148b68a6e4ac3d041a, type: 3}
+  m_Name: Outro1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - You place the book down on the altar and as you plunge the knife into your hand
+    the whispers begin to grow louder.
+  - Your blood drips from your hand onto the book, and slowly the pages begin to
+    open.
+  - Thank you for freeing me.
+  voice: {fileID: 8300000, guid: 36d8e76e433f23340a73754cf4ae5562, type: 3}
