@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator animator;
+
     [SerializeField] float controlForce = 5;
     [SerializeField] private float maxSpeed = 10;
     [SerializeField] private BoxCollider2D waterCheck;

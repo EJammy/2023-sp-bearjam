@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d98c42d9d5f6006489f75033b20064c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1aa784f1f3b3a3efab835d8fd6944486, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3690c1b02df83e89b09fa877d5605e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodParticles: {fileID: 2101711997406191599, guid: b03d2015d38ddea10bb0e504d11a3c91, type: 3}
 --- !u!58 &3640822260427693883
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -144,4 +143,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  reduceCallback:
+    m_PersistentCalls:
+      m_Calls: []
   reduceAudio: {fileID: 0}
