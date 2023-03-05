@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e97a9f5d946148b68a6e4ac3d041a, type: 3}
+  m_Name: OldMan2 1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Ooo, I see something shining in your hands.
+  - Here's your pickaxe. Now hand it over!
+  voice: {fileID: 8300000, guid: 42149f2ee57ea69488bc6c62f9f6bc5b, type: 3}
