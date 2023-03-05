@@ -13,12 +13,17 @@ public class Status : MonoBehaviour
     UnityEvent zeroCallback;
 
     [SerializeField]
+    [Tooltip("Event when value reduces")]
+    UnityEvent reduceCallback;
+
+    [SerializeField]
     AudioClip reduceAudio;
 
     public void reduce(int amt) {
         val -= amt;
+        reduceCallback?.Invoke();
         if (val <= 0) {
-            zeroCallback?.Invoke();;
+            zeroCallback?.Invoke();
         }
     }
 }

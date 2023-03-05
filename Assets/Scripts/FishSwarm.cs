@@ -6,6 +6,8 @@ public class FishSwarm : MonoBehaviour
 {
     [SerializeField]
     Fish spawnTarget;
+    [SerializeField]
+    int spawnCnt = 10;
 
     public List<Fish> swarm { get; private set; } = new List<Fish>();
     public Vector2 avgVelocity { get; private set; } = Vector2.zero;
@@ -21,7 +23,7 @@ public class FishSwarm : MonoBehaviour
         blBound = GetComponent<BoxCollider2D>().bounds.min;
         trBound = GetComponent<BoxCollider2D>().bounds.max;
 
-        for (int i = 0; i < 40; i++) {
+        for (int i = 0; i < spawnCnt; i++) {
             var fish = Instantiate(spawnTarget);
             swarm.Add(fish);
             fish.transform.position = new Vector3(

@@ -11,10 +11,11 @@ public class Fish : MonoBehaviour
     public Vector2 velocity { get; private set; }
     public FishSwarm swarm { get; set; }
 
-    const float cohesionFactor = 2f;
-    const float alignmentFactor = 2f;
+    const float cohesionFactor = 1f;
+    const float alignmentFactor = 1f;
     const float seperationFactor = 12f;
     const float maxVelocity = 6f;
+    const float LOS = 2f;
 
     [SerializeField]
     GameObject bloodParticles;
@@ -25,20 +26,35 @@ public class Fish : MonoBehaviour
         Destroy(gameObject);
     }
 
+    Collider2D[] getNearBy(float dist) {
+        return Physics2D.OverlapCircleAll(transform.position, dist, LayerMask.GetMask("Fish"));
+    }
+
     void Update()
     {
         // Cohesion
         // steer toward target pos, which equals the center of mass in the original program
-        targetPos = swarm.avgPos;
+        var avgPos = Vector2.zero;
+        var avgVelocity = Vector2.zero;
+        var others = getNearBy(LOS);
+        foreach (var otherFish in others) {
+            avgPos += (Vector2) otherFish.transform.position;
+            avgVelocity += otherFish.GetComponent<Fish>().velocity;
+        }
+        avgPos /= others.Length;
+        avgVelocity /= others.Length;
+
+        targetPos = avgPos;
+
         Vector2 targetDir = targetPos - new Vector2(transform.position.x, transform.position.y);
         velocity += targetDir.normalized * Time.deltaTime * cohesionFactor;
 
         // Alignment
-        velocity += (swarm.avgVelocity - velocity) * Time.deltaTime * alignmentFactor;
+        velocity += (avgVelocity - velocity) * Time.deltaTime * alignmentFactor;
 
         // Seperation
         Vector2 nearBy = Vector2.zero;
-        var othersList = Physics2D.OverlapCircleAll(transform.position, 0.2f, LayerMask.GetMask("Fish"));
+        var othersList = getNearBy(0.2f);
         foreach (var otherFish in othersList) {
             Vector2 diff = otherFish.transform.position - transform.position;
             nearBy += diff.normalized;
@@ -47,7 +63,7 @@ public class Fish : MonoBehaviour
         velocity -= nearBy.normalized * Time.deltaTime * seperationFactor;
 
         // Bound
-        float boundFactor = 0f;
+        float boundFactor = 10f;
         if (transform.position.x < swarm.blBound.x) {
             velocity += Vector2.right * Time.deltaTime * boundFactor;
         }
