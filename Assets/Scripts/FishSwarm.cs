@@ -5,13 +5,13 @@ using UnityEngine;
 public class FishSwarm : MonoBehaviour
 {
     [SerializeField]
-    Fish spawnTarget;
+    SwarmMovement spawnTarget;
     [SerializeField]
     int spawnCnt = 10;
 
-    public List<Fish> swarm { get; private set; } = new List<Fish>();
-    public Vector2 avgVelocity { get; private set; } = Vector2.zero;
-    public Vector2 avgPos { get; private set; } = Vector2.zero;
+    // public List<SwarmMovement> swarm { get; private set; } = new List<SwarmMovement>();
+    // public Vector2 avgVelocity { get; private set; } = Vector2.zero;
+    // public Vector2 avgPos { get; private set; } = Vector2.zero;
     public Vector2 randomTarget { get; private set; }
 
     public Vector2 blBound { get; private set; }
@@ -25,7 +25,7 @@ public class FishSwarm : MonoBehaviour
 
         for (int i = 0; i < spawnCnt; i++) {
             var fish = Instantiate(spawnTarget);
-            swarm.Add(fish);
+            // swarm.Add(fish);
             fish.transform.position = new Vector3(
                     Random.Range(blBound.x, trBound.x),
                     Random.Range(blBound.y, trBound.y),
@@ -40,15 +40,15 @@ public class FishSwarm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        avgVelocity = Vector2.zero;
-        avgPos = Vector2.zero;
-        foreach (var fish in swarm) {
-            avgPos += (Vector2) fish.transform.position;
-            avgVelocity += fish.velocity;
-        }
-        avgVelocity /= swarm.Count;
-        avgPos /= swarm.Count;
-        avgPos = (avgPos + (Vector2) randomTarget) / 2;
+        // avgVelocity = Vector2.zero;
+        // avgPos = Vector2.zero;
+        // foreach (var fish in swarm) {
+        //     avgPos += (Vector2) fish.transform.position;
+        //     avgVelocity += fish.velocity;
+        // }
+        // avgVelocity /= swarm.Count;
+        // avgPos /= swarm.Count;
+        // avgPos = (avgPos + (Vector2) randomTarget) / 2;
     }
 
     IEnumerator setRandomPoint() {
