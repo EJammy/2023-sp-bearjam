@@ -128,6 +128,8 @@ GameObject:
   - component: {fileID: 6944475966867189141}
   - component: {fileID: 777525756}
   - component: {fileID: 5189215428490704001}
+  - component: {fileID: 2808165477644037193}
+  - component: {fileID: 8504588053400292566}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -197,7 +199,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7169812, g: 0.42347062, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -300,6 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterCheck: {fileID: 6944475968111946163}
   light: {fileID: 0}
+  waterAnimator: {fileID: 0}
+  landAnimator: {fileID: 9100000, guid: 785f70ac55ebe26f98695b05ecb052b2, type: 2}
 --- !u!114 &777525756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +329,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0d00a0e745a96fb9f63e85af8eb7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2808165477644037193
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944475966867189146}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 785f70ac55ebe26f98695b05ecb052b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!111 &8504588053400292566
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944475966867189146}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6944475967600013980
 GameObject:
   m_ObjectHideFlags: 0
