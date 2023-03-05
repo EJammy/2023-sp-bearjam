@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 007e97a9f5d946148b68a6e4ac3d041a, type: 3}
-  m_Name: OldMan2 2
+  m_Name: OldMan2 5
   m_EditorClassIdentifier: 
   dialogue:
-  - I'm sorry if I was a bit rude back then hehe. If you happen upon any more treasure
-    I could trade you this antique knife that washed up onto shore one day.
-  - If you're still alive by then, you'll be needing it...
+  - You've got the treasure?
+  - HAHA!!! I'M FREE!
+  - Take your stupid knife and enjoy your surprise...
   voice: {fileID: 8300000, guid: 42149f2ee57ea69488bc6c62f9f6bc5b, type: 3}

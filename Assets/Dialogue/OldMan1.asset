@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: OldMan1
   m_EditorClassIdentifier: 
   dialogue:
-  - You aren't from around here are you? I can tell. After all I've been here for
-    a looong time. Hehe...
-  - You wouldn't be planning on going down that there hole are you?
-  - Only people with not much left to live for or people with a few screws loose
-    go down there.
-  - "Oh no, I\u2019m not calling you crazy, but believe me... you wouldn\u2019t be
-    the first person who\u2019s gone down there before."
+  - "You aren't from around here are you? I can tell. After all \nI've been here
+    for a looong time. Hehe..."
+  - "You wouldn't be planning on going down that there hole\n are you?"
+  - "Only people with not much left to live for or people with \na few screws loose
+    go down there."
+  - "Oh no, I\u2019m not calling you crazy, but believe me... you \nwouldn\u2019t
+    be the first person who\u2019s gone down there before."
   - "But maybe it\u2019ll be different for you hehe."
-  - "Well, if I happen to see you again and you find any treasure, I\u2019ll trade
+  - "Well, if I happen to see you again and you find any \ntreasure, I\u2019ll trade
     you this pickaxe I uh found."
-  - "It\u2019ll be more useful for you than it has been for me hehe..."
+  - "It\u2019ll be more useful for you than it has been for me \nhehe..."
   voice: {fileID: 8300000, guid: 42149f2ee57ea69488bc6c62f9f6bc5b, type: 3}
