@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerFlashlight : MonoBehaviour
 {
     [SerializeField] GameObject light;
+
+    private void Awake()
+    {
+        SetOff();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -14,5 +20,15 @@ public class PlayerFlashlight : MonoBehaviour
             Vector2 centeredVector = mouseVector - GetComponent<Rigidbody2D>().position;
             light.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, centeredVector));
         }
+    }
+
+    public void SetOff()
+    {
+        light.SetActive(false);
+    }
+
+    public void SetOn()
+    {
+        light.SetActive(true);
     }
 }
