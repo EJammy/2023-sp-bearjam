@@ -15,7 +15,7 @@ public class PlayerInteract : MonoBehaviour
 
     public DialogUI DialogUI => dialogUI;
 
-    public Interactable interactable { get; set; }
+    public IInteractable interactable { get; set; }
     #endregion
 
     // Start is called before the first frame update

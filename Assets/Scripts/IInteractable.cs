@@ -1,25 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class Interactable : MonoBehaviour, IInteractable
+public interface IInteractable
 {
-    #region Variables
-    [SerializeField] private DialogObj dialogObj;
-    [SerializeField] private GameObject dialogUI;
-    #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    public void Interact(PlayerInteract player)
-    {
-        dialogUI.GetComponent<DialogUI>().ShowDialogue(dialogObj);
-    }
+    public void Interact(PlayerInteract player);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

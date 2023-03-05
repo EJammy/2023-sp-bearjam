@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGravity : MonoBehaviour
+public class PlayerWaterEffects : MonoBehaviour
 {
     [SerializeField] BoxCollider2D waterCheck;
+    [SerializeField] GameObject light;
+
     // Update is called once per frame
     void FixedUpdate()
     {

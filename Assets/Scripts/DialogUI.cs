@@ -14,7 +14,9 @@ public class DialogUI : MonoBehaviour
     private void Start()
     {
         typewriterEffect = GetComponent<TypewriterEffect>();
-        CloseDialogBox();
+        isOpen = false;
+        dialogBox.SetActive(false);
+        textLabel.text = string.Empty;
     }
 
     public void ShowDialogue(DialogObj dialogObj)
