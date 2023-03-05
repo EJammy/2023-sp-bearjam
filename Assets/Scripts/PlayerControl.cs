@@ -21,6 +21,11 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+    }
+
+    private void Update()
+    {
         if (Statics.hasControl)
         {
             Vector2 force = Vector2.zero;
@@ -49,16 +54,13 @@ public class PlayerControl : MonoBehaviour
                 isJumping = false;
             }
 
-            rb.AddForce(force * controlForce);
+            rb.AddForce(force * controlForce* Time.deltaTime);
 
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rb.velocity.y, -maxSpeed, maxSpeed));
 
             // Debug.Log(rb.velocity);
         }
-    }
 
-    private void Update()
-    {
         if (Statics.hasControl)
         {
             Vector2 force = Vector2.zero;

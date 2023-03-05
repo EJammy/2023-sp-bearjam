@@ -29,6 +29,7 @@ public class DialogResponseEvents : MonoBehaviour
         } else
         {
             dialogUI.GetComponent<DialogUI>().ShowDialogue(oldman2_1, null);
+            Statics.hasPick = true;
             Interactable oldman = GameObject.Find("Old Man").GetComponent<Interactable>();
             oldman.dialogObj = oldman2_2;
             oldman.dialogEvent = null;
