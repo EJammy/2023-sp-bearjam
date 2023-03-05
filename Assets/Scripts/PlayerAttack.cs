@@ -23,6 +23,9 @@ public class PlayerAttack : MonoBehaviour
             Vector2 dir = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition) - pos;
             var target = Physics2D.OverlapCircle(pos + dir.normalized, 0.5f, LayerMask.GetMask("Fish"));
             target?.GetComponent<Status>().reduce(1);
+
+            var envTarget = Physics2D.OverlapCircle(pos + dir.normalized, 0.5f, LayerMask.GetMask("Destructable"));
+            envTarget?.GetComponent<Status>().reduce(1);
             cd = cooldown;
         }
     }
