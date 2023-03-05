@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e97a9f5d946148b68a6e4ac3d041a, type: 3}
+  m_Name: Intro2
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Coming to the small village, the only human that you've seen so far is an old
+    man who you choose to decidedly avoid. That was until one night...
+  voice: {fileID: 8300000, guid: 36d8e76e433f23340a73754cf4ae5562, type: 3}

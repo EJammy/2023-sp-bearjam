@@ -26,7 +26,8 @@ public class DialogUI : MonoBehaviour
     {
         isOpen = true;
         Statics.hasControl = false;
-        Statics.player.GetComponent<PlayerInteract>().closeInteractKey();
+        if (Statics.player != null)
+            Statics.player.GetComponent<PlayerInteract>().closeInteractKey();
         dialogBox.SetActive(true);
         currDialogCoroutine = StartCoroutine(stepThroughDialog(dialogObj, dialogEvent));
     }
