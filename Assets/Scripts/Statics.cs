@@ -8,4 +8,5 @@ public class Statics : MonoBehaviour
     public static GameObject player;
     public static int coins = 0;
     public static bool hasPick = false;
+    public static bool hasKnife = false;
 }

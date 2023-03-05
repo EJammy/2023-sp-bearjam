@@ -20,6 +20,8 @@ public class DialogResponseEvents : MonoBehaviour
     [SerializeField] private DialogObj oldman2_4;
     [SerializeField] private DialogObj oldman2_5;
 
+    [SerializeField] private DialogObj altar2;
+
     public void Oldman1()
     {
         Interactable oldman = GameObject.Find("Old Man").GetComponent<Interactable>();
@@ -61,7 +63,7 @@ public class DialogResponseEvents : MonoBehaviour
         else
         {
             dialogUI.GetComponent<DialogUI>().ShowDialogue(oldman2_5, OldmanUE2_5);
-            Statics.hasPick = true;
+            Statics.hasKnife = true;
             Statics.coins -= price;
         }
     }
@@ -69,5 +71,16 @@ public class DialogResponseEvents : MonoBehaviour
     public void FuncOldman2_5()
     {
         GameObject.Find("Old Man").SetActive(false);
+    }
+
+    public void Altar1()
+    {
+        if (Statics.hasKnife)
+        {
+            GameObject.Find("SceneManager").GetComponent<TransitionManager>().EndScene();
+        } else
+        {
+            dialogUI.GetComponent<DialogUI>().ShowDialogue(altar2, null);
+        }
     }
 }

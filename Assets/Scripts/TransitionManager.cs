@@ -14,4 +14,9 @@ public class TransitionManager : MonoBehaviour
     {
         SceneManager.LoadScene("Alex");
     }
+
+    public void EndScene()
+    {
+        SceneManager.LoadScene("OutroScene");
+    }
 }
