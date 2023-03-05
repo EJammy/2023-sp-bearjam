@@ -9,12 +9,14 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float maxSpeed = 10;
     [SerializeField] private BoxCollider2D waterCheck;
     [SerializeField] private BoxCollider2D groundCheck;
+    private bool isJumping;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Statics.player = this.gameObject;
+        isJumping = false;
     }
 
     void FixedUpdate()
@@ -27,14 +29,6 @@ public class PlayerControl : MonoBehaviour
                 if (waterCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
                 {
                     force += Vector2.up;
-                } else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
-                {
-                    // Getting out of water case
-                    force += Vector2.up * 2;
-                } else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Ground")))
-                {
-                    // On land case
-                    force += Vector2.up * 3;
                 }
             }
             if (Input.GetKey(KeyCode.S))
@@ -48,6 +42,11 @@ public class PlayerControl : MonoBehaviour
             if (Input.GetKey(KeyCode.D))
             {
                 force += Vector2.right;
+            }
+            if (isJumping)
+            {
+                force += Vector2.up * 10;
+                isJumping = false;
             }
 
             rb.AddForce(force * controlForce);
@@ -65,18 +64,11 @@ public class PlayerControl : MonoBehaviour
             Vector2 force = Vector2.zero;
             if (Input.GetKey(KeyCode.W) && !waterCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
             {
-                if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Water")))
+                if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Water")) || groundCheck.IsTouchingLayers(LayerMask.GetMask("Ground")))
                 {
-                    // Getting out of water case
-                    force += Vector2.up;
-                }
-                else if (groundCheck.IsTouchingLayers(LayerMask.GetMask("Ground")))
-                {
-                    // On land case
-                    force += Vector2.up;
+                    isJumping = true;
                 }
             }
-            rb.AddForce(force * controlForce);
         }
 
     }

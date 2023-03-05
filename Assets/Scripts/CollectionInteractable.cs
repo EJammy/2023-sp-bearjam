@@ -40,7 +40,8 @@ public class CollectionInteractable : MonoBehaviour, IInteractable
 
     private void HandleCollection(PlayerInteract player)
     {
-        Debug.Log("Closing self");
+        Statics.coins += 1;
+        Debug.Log(Statics.coins);
         this.gameObject.SetActive(false);
     }
 }
