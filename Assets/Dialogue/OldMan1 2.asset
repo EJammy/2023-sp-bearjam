@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OldMan1 2
   m_EditorClassIdentifier: 
   dialogue:
-  - "Well if you haven't found any treasure yet why are \nyou bothering me! Hehe..."
+  - Well if you haven't found any treasure yet why are you bothering me! Hehe...
   voice: {fileID: 8300000, guid: 42149f2ee57ea69488bc6c62f9f6bc5b, type: 3}
