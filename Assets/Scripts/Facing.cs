@@ -9,11 +9,11 @@ public class Facing : MonoBehaviour
     void Update()
     {
         if (transform.position.x - lastPos.x > 0) {
-            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (transform.position.x - lastPos.x < 0) {
-            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         lastPos = transform.position;
         
